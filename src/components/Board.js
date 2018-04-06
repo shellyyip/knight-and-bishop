@@ -30,7 +30,7 @@ class Board extends React.Component {
     }
 
     return (
-      <div>
+      <div className="chessBoard">
         {squares}
       </div>
     )

@@ -27,8 +27,19 @@
   to { transform: rotate(360deg); }
 }
 
+.chessBoard {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 850px;
+  max-height: 850px;
+}
+
 .chessBoard__square {
   height: 100px;
   width: 100px;
   border: 1px solid black;
+}
+
+.chessBoard__piece {
+  font-size: 64px;
 }

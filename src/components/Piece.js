@@ -18,7 +18,7 @@ function collect(connect, monitor) {
 
 const Piece = (props) => {
   return props.connectDragSource(
-    <div>
+    <div className="chessBoard__piece">
     ♝
     </div>
   )
