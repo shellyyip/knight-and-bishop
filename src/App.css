@@ -40,6 +40,12 @@
   border: 1px solid black;
 }
 
+.chessBoard__square--black {
+  border: 1px solid white;
+  background-color: black;
+}
+
 .chessBoard__piece {
   font-size: 64px;
 }
+

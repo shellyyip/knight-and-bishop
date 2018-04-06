@@ -1,6 +1,10 @@
 import React from 'react'
 import { DragSource } from 'react-dnd'
 
+
+// TODO: movement rules
+// BISHOP: may only move onto the same color that it is currently on
+
 const pieceSource = {
   beginDrag(props) {
     return {

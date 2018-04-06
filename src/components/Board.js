@@ -22,7 +22,8 @@ class Board extends React.Component {
           <Square 
             x={x} 
             y={y} 
-            key={`${x}_${y}`}
+            key={`${x},${y}`}
+            isBlack={(x + y) % 2 !== 0}
             bishopPosition={this.state.bishopPosition}
           />
         )

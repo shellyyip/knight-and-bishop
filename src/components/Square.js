@@ -1,5 +1,6 @@
 import React from 'react'
 import { DropTarget } from 'react-dnd'
+import classnames from 'classnames'
 import Piece from './Piece'
 
 const squareTarget = {
@@ -19,6 +20,7 @@ const Square = (props) => {
   const {
     x,
     y,
+    isBlack,
     bishopPosition,
   } = props
 
@@ -28,8 +30,13 @@ const Square = (props) => {
     piece = <Piece />
   }
 
+  const squareClasses = classnames({
+    'chessBoard__square--black': isBlack,
+    'chessBoard__square': true,
+  })
+
   return (
-    <div className="chessBoard__square">
+    <div className={squareClasses}>
       {piece}
     </div>
   )
