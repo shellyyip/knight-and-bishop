@@ -1,11 +1,27 @@
 import React from 'react'
+import { DragSource } from 'react-dnd'
 
-const Piece = () => {
-  return (
+const pieceSource = {
+  beginDrag(props) {
+    return {
+      piece: props.piece,
+    }
+  }
+}
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  };
+}
+
+const Piece = (props) => {
+  return props.connectDragSource(
     <div>
-      <h1>P</h1>
+    ♞
     </div>
   )
 }
 
-export default Piece
+export default DragSource('PIECE', pieceSource, collect)(Piece)
