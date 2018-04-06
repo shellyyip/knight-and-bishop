@@ -18,7 +18,8 @@ const squareTarget = {
 function collect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop(),
   }
 }
 
@@ -49,6 +50,7 @@ const Square = (props) => {
     y,
     isBlack,
     isOver,
+    canDrop,
     piecePositions,
   } = props
 
@@ -56,7 +58,8 @@ const Square = (props) => {
 
   const squareClasses = classnames({
     'chessBoard__square--black': isBlack,
-    'chessBoard__square--isOver': isOver,
+    'chessBoard__square--validTarget': isOver && canDrop,
+    'chessBoard__square--invalidTarget': isOver && !canDrop,
     'chessBoard__square': true,
   })
 
