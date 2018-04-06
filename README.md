@@ -3,10 +3,10 @@ Knight & Bishop
 
 This app displays a knight and bishop on a chess board, and allows for legal
 chess movements for each piece.
-Pieces are moved by drag & drop (mouse only, will not work on touch devices)
-Pieces highlight in yellow when clicked and held.
-When a piece is dragged over a legal square, the square will highlight in green.
-When a piece is dragged over an illegal square, the square will highlight in 
+- Pieces are moved by drag & drop (mouse only, will not work on touch devices)
+- Pieces highlight in yellow when clicked and held.
+- When a piece is dragged over a legal square, the square will highlight in green.
+- When a piece is dragged over an illegal square, the square will highlight in 
 red.
 
 To Run:
