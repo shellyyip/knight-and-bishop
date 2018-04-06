@@ -11,7 +11,7 @@ const squareTarget = {
     )
   },
   drop(props, monitor) {
-    props.handleDrop('bishop', [props.x, props.y])
+    props.handleDrop(monitor.getItem().piece, [props.x, props.y])
   }
 }
 
@@ -37,7 +37,7 @@ function hasPiece(squarePos, piecePositions) {
     const [squareX, squareY] = squarePos
 
     if ((squareX === pieceX) && (squareY === pieceY)) {
-      return <Piece />
+      return <Piece piece={piece} />
     }
   }
   

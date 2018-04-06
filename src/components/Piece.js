@@ -31,9 +31,22 @@ const Piece = (props) => {
     "chessBoard__piece": true,
   })
 
+  let pieceIcon
+  switch (props.piece) {
+    case 'bishop':
+      pieceIcon = <span>♝</span>
+      break
+    case 'knight':
+      pieceIcon = <span>♞</span>
+      break
+    default:
+      pieceIcon = <span>{props.piece}</span>
+  }
+  
+
   return props.connectDragSource(
     <div className={pieceClasses}>
-    ♝
+      {pieceIcon}
     </div>
   )
 }

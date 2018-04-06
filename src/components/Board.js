@@ -12,6 +12,7 @@ class Board extends React.Component {
     this.state = {
       piecePositions: {
         bishop: [1,1],
+        knight: [1,2],
       }
     }
 
