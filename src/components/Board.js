@@ -20,7 +20,6 @@ class Board extends React.Component {
   }
 
   validateMove(piece, nextPos) {
-    console.log('valdating move', piece, nextPos)
     const prevPos = this.state.piecePositions[piece]
     // TODO: validate no other piece is on nextPos
     return movementRules[piece].validateMove(prevPos, nextPos)
