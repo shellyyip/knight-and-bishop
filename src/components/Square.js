@@ -21,6 +21,7 @@ const Square = (props) => {
     x,
     y,
     isBlack,
+    isOver,
     bishopPosition,
   } = props
 
@@ -32,6 +33,7 @@ const Square = (props) => {
 
   const squareClasses = classnames({
     'chessBoard__square--black': isBlack,
+    'chessBoard__square--isOver': isOver,
     'chessBoard__square': true,
   })
 

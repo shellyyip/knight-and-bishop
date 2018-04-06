@@ -2,26 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -45,7 +25,18 @@
   background-color: black;
 }
 
+.chessBoard__square--isOver {
+  border: 3px solid green;
+  box-sizing: border-box;
+}
+
+
 .chessBoard__piece {
   font-size: 64px;
+  color: brown;
+}
+
+.chessBoard__piece--isDragging {
+  background-color: yellow;
 }
 

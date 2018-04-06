@@ -1,6 +1,6 @@
 import React from 'react'
 import { DragSource } from 'react-dnd'
-
+import classnames from 'classnames'
 
 // TODO: movement rules
 // BISHOP: may only move onto the same color that it is currently on
@@ -27,8 +27,13 @@ function collect(connect, monitor) {
 }
 
 const Piece = (props) => {
+  const pieceClasses = classnames({
+    "chessBoard__piece--isDragging": props.isDragging,
+    "chessBoard__piece": true,
+  })
+
   return props.connectDragSource(
-    <div className="chessBoard__piece">
+    <div className={pieceClasses}>
     ♝
     </div>
   )
