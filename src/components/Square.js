@@ -5,7 +5,6 @@ import Piece from './Piece'
 
 const squareTarget = {
   canDrop(props, monitor) {
-    
     return props.validateMove(
       monitor.getItem().piece,
       [props.x, props.y], // next pos

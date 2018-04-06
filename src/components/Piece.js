@@ -8,11 +8,6 @@ const pieceSource = {
       piece: props.piece,
     }
   },
-  endDrag(props, monitor) {
-    return {
-      endSquare: monitor.getDropResult(),
-    }
-  }
 }
 
 function collect(connect, monitor) {
@@ -39,7 +34,6 @@ const Piece = (props) => {
     default:
       pieceIcon = <span>{props.piece}</span>
   }
-  
 
   return props.connectDragSource(
     <div className={pieceClasses}>

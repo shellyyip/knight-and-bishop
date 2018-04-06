@@ -1,4 +1,14 @@
 const movementRules = {
+  // General
+  onePiecePerSquare: function (nextPos, piecePositions) {
+    const filledSquares = Object.values(piecePositions)
+
+    return !(filledSquares.find(filledSquarePos => {
+      return JSON.stringify(filledSquarePos) === JSON.stringify(nextPos)
+    }))
+  },
+
+  // Pieces
   bishop: {
     // Change in X & Y must be equal
     validateMove: function (prevPos, nextPos) {

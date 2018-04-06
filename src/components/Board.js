@@ -23,13 +23,13 @@ class Board extends React.Component {
 
   validateMove(piece, nextPos) {
     const prevPos = this.state.piecePositions[piece]
-    // TODO: validate no other piece is on nextPos
-
     if (!movementRules[piece]) {
       console.error(`Cannot Validate Move: You must define a move validation function for piece ${piece}`)
       return
     }
-    return movementRules[piece].validateMove(prevPos, nextPos)
+
+    return movementRules.onePiecePerSquare(nextPos, this.state.piecePositions)
+      && movementRules[piece].validateMove(prevPos, nextPos)
   }
 
   movePiece(piece, squarePos) {
