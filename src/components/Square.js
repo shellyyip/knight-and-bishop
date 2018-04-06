@@ -1,5 +1,6 @@
 import React from 'react'
 import { DropTarget } from 'react-dnd'
+import Piece from './Piece'
 
 const squareTarget = {
   drop(props, monitor) {
@@ -15,9 +16,21 @@ function collect(connect, monitor) {
 }
 
 const Square = (props) => {
+  const {
+    x,
+    y,
+    bishopPosition,
+  } = props
+
+  let piece = null
+  if ((x === bishopPosition[0]) && (y === bishopPosition[1])) {
+    console.log('has piece')
+    piece = <Piece />
+  }
+
   return (
     <div className="chessBoard__square">
-      {props.children}
+      {piece}
     </div>
   )
 }
