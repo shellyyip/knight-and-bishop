@@ -1,4 +1,18 @@
 import React from 'react'
+import { DropTarget } from 'react-dnd'
+
+const squareTarget = {
+  drop(props, monitor) {
+    return {}
+  }
+}
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+}
 
 const Square = (props) => {
   return (
@@ -8,4 +22,4 @@ const Square = (props) => {
   )
 }
 
-export default Square
+export default DropTarget('PIECE', squareTarget, collect)(Square)
