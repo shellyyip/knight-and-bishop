@@ -10,13 +10,19 @@ const pieceSource = {
     return {
       piece: props.piece,
     }
+  },
+  endDrag(props, monitor) {
+    console.log('firing end drag', monitor.getDropResult())
+    return {
+      endSquare: monitor.getDropResult(),
+    }
   }
 }
 
 function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
   };
 }
 

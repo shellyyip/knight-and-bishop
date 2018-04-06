@@ -5,7 +5,7 @@ import Piece from './Piece'
 
 const squareTarget = {
   drop(props, monitor) {
-    return {}
+    props.handleDrop('bishop', [props.x, props.y])
   }
 }
 
@@ -35,7 +35,7 @@ const Square = (props) => {
     'chessBoard__square': true,
   })
 
-  return (
+  return props.connectDropTarget(
     <div className={squareClasses}>
       {piece}
     </div>

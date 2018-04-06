@@ -11,6 +11,16 @@ class Board extends React.Component {
     this.state = {
       bishopPosition: [1,1],
     }
+
+    this.movePiece = this.movePiece.bind(this)
+  }
+
+  movePiece(piece, squarePos) {
+    console.log('square is ', squarePos)
+
+    this.setState({
+      bishopPosition: squarePos,
+    })
   }
 
   render() {
@@ -25,6 +35,7 @@ class Board extends React.Component {
             key={`${x},${y}`}
             isBlack={(x + y) % 2 !== 0}
             bishopPosition={this.state.bishopPosition}
+            handleDrop={this.movePiece}
           />
         )
       }
