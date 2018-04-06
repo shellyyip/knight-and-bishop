@@ -9,17 +9,25 @@ class Board extends React.Component {
     super() 
 
     this.state = {
-      bishopPosition: [1,1],
+      piecePositions: {
+        bishop: [1,1],
+      }
     }
 
+    this.validateMove = this.validateMove.bind(this)
     this.movePiece = this.movePiece.bind(this)
   }
 
-  movePiece(piece, squarePos) {
-    console.log('square is ', squarePos)
+  validateMove(piece, nextPos) {
+    //console.log('validating move', piece, nextPos)
+    return true
+  }
 
+  movePiece(piece, squarePos) {
     this.setState({
-      bishopPosition: squarePos,
+      piecePositions: {
+        [piece]: squarePos,
+      }
     })
   }
 
@@ -34,7 +42,8 @@ class Board extends React.Component {
             y={y} 
             key={`${x},${y}`}
             isBlack={(x + y) % 2 !== 0}
-            bishopPosition={this.state.bishopPosition}
+            piecePositions={this.state.piecePositions}
+            validateMove={this.validateMove}
             handleDrop={this.movePiece}
           />
         )

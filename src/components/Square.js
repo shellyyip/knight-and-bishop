@@ -4,6 +4,12 @@ import classnames from 'classnames'
 import Piece from './Piece'
 
 const squareTarget = {
+  canDrop(props, monitor) {
+    return props.validateMove(
+      monitor.getItem(),
+      [props.x, props.y], // next pos
+    )
+  },
   drop(props, monitor) {
     props.handleDrop('bishop', [props.x, props.y])
   }
@@ -16,20 +22,37 @@ function collect(connect, monitor) {
   }
 }
 
+/**
+ * Determines whether a square contains a piece, and returns the component
+ * of that piece.
+ * 
+ * @param {array} squarePos - [x, y] position of current square
+ * @param {array} piecePositions - array of game pieces with their positions as a position array [x, y]
+ */
+function hasPiece(squarePos, piecePositions) {
+  for (let piece in piecePositions) {
+    const piecePos = piecePositions[piece]
+    const [pieceX, pieceY] = piecePos 
+    const [squareX, squareY] = squarePos
+
+    if ((squareX === pieceX) && (squareY === pieceY)) {
+      return <Piece />
+    }
+  }
+  
+  return null
+}
+
 const Square = (props) => {
   const {
     x,
     y,
     isBlack,
     isOver,
-    bishopPosition,
+    piecePositions,
   } = props
 
-  let piece = null
-  if ((x === bishopPosition[0]) && (y === bishopPosition[1])) {
-    console.log('has piece')
-    piece = <Piece />
-  }
+  let piece = hasPiece([x, y], piecePositions) 
 
   const squareClasses = classnames({
     'chessBoard__square--black': isBlack,

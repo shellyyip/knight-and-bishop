@@ -8,11 +8,10 @@ import classnames from 'classnames'
 const pieceSource = {
   beginDrag(props) {
     return {
-      piece: props.piece,
+      piece: 'bishop',
     }
   },
   endDrag(props, monitor) {
-    console.log('firing end drag', monitor.getDropResult())
     return {
       endSquare: monitor.getDropResult(),
     }
@@ -23,7 +22,7 @@ function collect(connect, monitor) {
   return {
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging(),
-  };
+  }
 }
 
 const Piece = (props) => {
